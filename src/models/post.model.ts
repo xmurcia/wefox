@@ -12,19 +12,19 @@ export class Post {
         id?: number;
         title: string;
         content: string;
-        createdAt: string;
-        updatedAt: string;
+        created_at: string;
+        updated_at: string;
         lat: number;
         long: number;
-        image?: string;
+        image_url?: string;
     }) {
         this.id = post.id;
         this.title = post.title;
         this.content = post.content;
-        this.createdAt = post.createdAt;
-        this.updatedAt = post.updatedAt;
+        this.createdAt = post.created_at;
+        this.updatedAt = post.updated_at;
         this.lat = post.lat;
         this.long = post.long;
-        this.image = post.image;
+        this.image = post.image_url;
     }
 }
