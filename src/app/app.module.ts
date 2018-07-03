@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { appRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { CoreModule } from '../core/core.module';
 import { PagesModule } from '../pages/pages.module';
 
 @NgModule({
@@ -13,8 +12,7 @@ import { PagesModule } from '../pages/pages.module';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, { useHash: true}),
-    CoreModule,
-    PagesModule
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
