@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent  {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
-  ngOnInit() {
+  navigateToPosts() {
+    this.router.navigate(['/posts']);
   }
 
 }

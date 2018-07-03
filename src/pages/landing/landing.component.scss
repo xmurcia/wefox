@@ -1,0 +1,61 @@
+@import 'src/styles/styles';
+.header {
+    height: 95vh;
+    background-image: linear-gradient(-45deg, $blue-horizon 25%, $blue-gray 87%, $twinkle-blue 94%), url('/assets/img/barcelona.jpg');
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 72vh, 0 100%);
+    &__logo-box {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+    }
+    &__logo {
+        width: 6rem;
+    }
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    &__title {
+        text-transform: uppercase;
+        &--main {
+            font-size: 8rem;
+            letter-spacing: 0.6rem;
+            font-weight: 400;
+            display: block;
+            color: $twinkle-blue;
+        }
+        &--sub {
+            &:first-letter {
+                margin-left: 1.74rem;
+            }
+            display: block;
+            letter-spacing: 2rem;
+            color: $flirtatious;
+            font-weight: 600;
+        }
+    }
+    .but {
+        border-radius: 5rem;
+        padding: 1.5rem;
+        font-size: 1.9rem;
+        cursor: pointer;
+        &.but-light {
+            background-color: $orange-hibiscus;
+            color: $twinkle-blue;
+            &:active {
+                color: $blue-horizon;
+            }
+            &:hover {
+                text-decoration: none;
+                background-color: $wefox;
+                transform: translateY(2px);
+                box-shadow: 0 1rem 2rem rgba($twinkle-blue, 0.2);
+            }
+        }
+    }
+}

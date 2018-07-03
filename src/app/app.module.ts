@@ -9,7 +9,7 @@ import { PagesModule } from '../pages/pages.module';
 @NgModule({
   declarations: [
     AppComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes, { useHash: true}),
