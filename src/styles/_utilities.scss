@@ -1,0 +1,35 @@
+@for $i from 6 through 10 {
+    .m-#{$i} {
+        margin: #{$i}rem;
+    }
+    .mt-#{$i} {
+        margin-top: #{$i}rem;
+    }
+    .mb-#{$i} {
+        margin-bottom: #{$i}rem;
+    }
+    .mx-#{$i} {
+        margin-left: #{$i}rem;
+    }
+    .mr-#{$i} {
+        margin-right: #{$i}rem;
+    }
+}
+
+@for $i from 6 through 10 {
+    .p-#{$i} {
+        padding: #{$i}rem;
+    }
+    .pt-#{$i} {
+        padding-top: #{$i}rem;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{$i}rem;
+    }
+    .px-#{$i} {
+        padding-left: #{$i}rem;
+    }
+    .pr-#{$i} {
+        padding-right: #{$i}rem;
+    }
+}
