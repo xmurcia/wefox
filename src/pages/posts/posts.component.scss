@@ -1,0 +1,15 @@
+@import 'src/styles/styles';
+.posts {
+    width: 100%;
+    height: 100vh;
+    background-color: $twinkle-blue;
+    &__text-box {
+        transform: skew(1deg, 2deg);
+    }
+    &__title {
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 1rem;
+        color: $wefox;
+    }
+}
