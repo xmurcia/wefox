@@ -28,12 +28,8 @@ export class PostsService {
     }
 
     createPost(post: Post) {
-        const headers = new HttpHeaders();
-        headers.append('Content-Type', 'application/json');
-        headers.append('Accept', 'application/json');
-        const postToSave = { post: post };
-        console.log('PostToSave ', JSON.stringify(postToSave));
-        return this.http.post(API_URL, JSON.stringify(postToSave), { headers });
+        const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        return this.http.post(API_URL, { post }, { headers });
     }
 
     deletePost(id: number) {
