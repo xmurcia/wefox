@@ -13,15 +13,16 @@ export class CustomModalComponent {
     public post = {};
 
     constructor(public bsModalRef: BsModalRef,
-    ) { }
+    ) {
+    }
 
     close() {
         this.bsModalRef.hide();
     }
 
     onSubmit() {
+        console.log('Post in submit ', this.post);
         this.action(this.post);
-        this.form.reset();
         this.close();
     }
 

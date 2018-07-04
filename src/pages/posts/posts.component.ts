@@ -31,18 +31,20 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post: Post) {
+    const postIndex = this.posts.findIndex( (item) => item.id === post.id)
     this.postsService.deletePost(post.id)
       .subscribe(
-        postDeleted => console.log('Post deleted: ', postDeleted),
+        postDeleted => this.posts.splice(postIndex, 1),
         error => console.log('Error deleting post')
       );
   }
 
   addPost(post: Post) {
+    console.log('Add post' , post);
     this.postsService.createPost(post)
       .subscribe(
         postCreated => this.showToast(),
-        error => console.log('Error creating post')
+        error => console.log('Error creating post', error)
       );
   }
 

@@ -19,25 +19,25 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="url">Image url:</label>
-                                <input type="text" class="form-control" name="url" #url="ngModel" [(ngModel)]="post.image_url" id="url" required>
+                                <input type="text" class="form-control" name="url" #url="ngModel" [(ngModel)]="post.image_url" id="url">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="lat">Latitude:</label>
-                                <input type="text" class="form-control" name="lat" #lat="ngModel" [(ngModel)]="post.lat" id="lat" required>
+                                <input type="text" class="form-control" name="lat" #lat="ngModel" [(ngModel)]="post.lat" id="lat">
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="long">Long:</label>
-                                <input type="text" class="form-control" name="long" #long="ngModel" [(ngModel)]="post.lon" id="long" required>
+                                <input type="text" class="form-control" name="long" #long="ngModel" [(ngModel)]="post.long" id="long">
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="content">Content:</label>
-                                <textarea class="form-control" rows="5" id="comment" name="comment" #comment="ngModel" [(ngModel)]="post.comment" required></textarea>
+                                <textarea class="form-control" rows="5" id="content" name="content" #content="ngModel" [(ngModel)]="post.content" required></textarea>
                             </div>
                         </div>
                         <div class="modal-footer d-flex justify-content-end">
