@@ -39,11 +39,19 @@ export class PostsComponent implements OnInit {
   }
 
   addPost(post: Post) {
-    console.log('Adding post ...');
+    this.postsService.createPost(post)
+      .subscribe(
+        postCreated => this.showToast(),
+        error => console.log('Error creating post')
+      );
   }
 
   editPost(post: Post) {
     console.log('Post to edit... ', post);
+  }
+
+  showToast() {
+    console.log('Succesfully created');
   }
 
   public openAddPostModal() {

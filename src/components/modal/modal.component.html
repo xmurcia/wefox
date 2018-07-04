@@ -1,13 +1,52 @@
-<div class="modal-header">
-    <h4 class="modal-title pull-left">First modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-</div>
-<div class="modal-body">
-    This is a first modal
-    <button type="button" class="btn btn-primary">Open second modal</button>
-</div>
-<div class="modal-footer">
-    footer
+<div class="custom-modal">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ header }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+    </div>
+    <div class="modal-body">
+        <div [ngSwitch]="modalType">
+            <div class="row custom-modal__create custom-modal__create" *ngSwitchCase="'create'">
+                <div class="col-12">
+                    <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="title">Title:</label>
+                                <input type="text" class="form-control" name="title" #title="ngModel" [(ngModel)]="post.title" id="title" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="url">Image url:</label>
+                                <input type="text" class="form-control" name="url" #url="ngModel" [(ngModel)]="post.image_url" id="url" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="lat">Latitude:</label>
+                                <input type="text" class="form-control" name="lat" #lat="ngModel" [(ngModel)]="post.lat" id="lat" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="long">Long:</label>
+                                <input type="text" class="form-control" name="long" #long="ngModel" [(ngModel)]="post.lon" id="long" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="content">Content:</label>
+                                <textarea class="form-control" rows="5" id="comment" name="comment" #comment="ngModel" [(ngModel)]="post.comment" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-end">
+                            <button class="btn btn-danger" (click)="close()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Go</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

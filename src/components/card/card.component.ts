@@ -12,7 +12,6 @@ export class CardComponent  {
 
   @Input() item: any;
   @Output() deleteItem = new EventEmitter();
-  @Output() addItem = new EventEmitter();
   @Output() editItem = new EventEmitter();
 
   constructor() { }
@@ -23,10 +22,6 @@ export class CardComponent  {
 
   edit(item) {
     this.editItem.emit(item);
-  }
-
-  add() {
-    this.addItem.emit();
   }
 
   rotateCard() {

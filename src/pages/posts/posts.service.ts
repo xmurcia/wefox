@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../../models/post.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { API_URL } from '../../constants';
 
@@ -28,7 +28,10 @@ export class PostsService {
     }
 
     createPost(post: Post) {
-        return this.http.post(API_URL, post);
+        const headers = new HttpHeaders();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Accept', 'application/json');
+        return this.http.post(API_URL, JSON.stringify(post), { headers: headers });
     }
 
     deletePost(id: number) {

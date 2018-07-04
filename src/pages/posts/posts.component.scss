@@ -1,5 +1,10 @@
 @import 'src/styles/styles';
 .posts {
+    &__add {
+        font-size: 5rem;
+        color: $wefox;
+        cursor: pointer;
+    }
     &__text-box {
         transform: skew(1deg, 2deg);
     }

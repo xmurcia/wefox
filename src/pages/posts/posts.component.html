@@ -9,6 +9,9 @@
 
     <div class="container-fluid">
         <div class="row">
+            <div class="col-12">
+                <i class="material-icons posts__add" (click)="openAddPostModal()">add_circle_outline</i>
+            </div>
             <div class="col-12 col-xs-12 col-sm-6 col-md-4 col-lg-4" *ngFor="let post of posts">
                 <div class="d-flex justify-content-center">
                     <app-card [item]="post" (deleteItem)="deletePost(post)" (addItem)="openAddPostModal()" (editItem)="editPost(post)"></app-card>
