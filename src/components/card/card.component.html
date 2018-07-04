@@ -1,12 +1,32 @@
 <div class="wf-card">
-    <div class="wf-card-side wf-card-side--front">
+    <div class="wf-card-side wf-card-side--front" [ngClass]="{  'rotated' : rotate }">
         <div class="content">
-            {{ post.title }}
+            <div class="d-flex flex-column h-100">
+                <div class="wf-card__image my-3">
+                    <img [src]="item.image" class="img-fluid" alt="post image">
+                </div>
+
+                <div class="wf-card__text-box flex-2">
+                    <h3 class="wf-card__title">{{item.title}}</h3>
+                    <div class="wf-card__description">
+                        <p class="line-clamp line-clamp-5">{{item.content}}</p>
+                    </div>
+                </div>
+                <div class="wf-card__actions d-flex justify-content-between align-items-end">
+                    <i class="material-icons wf-card__button" (click)="add()">add_circle_outline</i>
+                    <i class="material-icons wf-card__button" (click)="edit()">edit</i>
+                    <i class="material-icons wf-card__button" (click)="delete()">delete_outline</i>
+                    <i class="material-icons wf-card__button" (click)="rotateCard()">360 </i>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="wf-card-side wf-card-side--back">
+    <div class="wf-card-side wf-card-side--back" [ngClass]="{  'rotated' : rotate }">
         <div class="content">
             MAP
+            <div class="wf-card__actions d-flex justify-content-end align-items-end">
+                <i class="material-icons wf-card__button" (click)="rotateCard()">360 </i>
+            </div>
         </div>
     </div>
 </div>

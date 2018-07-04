@@ -8,10 +8,29 @@ import { Post } from '../../models/post.model';
 })
 export class CardComponent  {
 
-  @Input() post: Post;
-  @Output() deletePost = new EventEmitter();
+  public rotate: Boolean = false;
+
+  @Input() item: any;
+  @Output() deleteItem = new EventEmitter();
+  @Output() addItem = new EventEmitter();
+  @Output() editItem = new EventEmitter();
 
   constructor() { }
 
+  delete(item) {
+    this.deleteItem.emit(item);
+  }
+
+  edit(item) {
+    this.editItem.emit(item);
+  }
+
+  add() {
+    this.addItem.emit();
+  }
+
+  rotateCard() {
+    this.rotate = !this.rotate;
+  }
 
 }

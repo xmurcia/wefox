@@ -23,7 +23,7 @@ export class PostsService {
     }
 
     getPost(id: number) {
-        return this.http.get(`${API_URL}${id}`)
+        return this.http.get(`${API_URL}/${id}`)
             .pipe(map((post: any) => new Post(post)));
     }
 
@@ -32,11 +32,11 @@ export class PostsService {
     }
 
     deletePost(id: number) {
-        return this.http.delete(`${API_URL}${id}`);
+        return this.http.delete(`${API_URL}/${id}`);
     }
 
     updatePost(post: Post) {
-        return this.http.put(`${API_URL}${post.id}`, post);
+        return this.http.put(`${API_URL}/${post.id}`, post);
     }
 
 }
