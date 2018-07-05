@@ -1,4 +1,13 @@
 @import 'src/styles/styles';
+::ng-deep {
+    .alert {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 2rem;
+    }
+}
+
 .posts {
     background-color: $twinkle-blue;
     &__add {
@@ -18,5 +27,11 @@
         &:hover {
             transform: scale(1.2);
         }
+    }
+    &__loading-full {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% -50%);
     }
 }

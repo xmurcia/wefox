@@ -13,10 +13,21 @@ import { CustomModalComponent } from '../../components/modal/modal.component';
 export class PostsComponent implements OnInit {
 
   public posts: Array<Post> = [];
+  public alerts: any[] = [{
+    type: 'success',
+    msg: `Successful operation!`,
+    timeout: 5000
+  },
+  {
+    type: 'danger',
+    msg: `Something wrong happened, please, try again later`,
+    timeout: 5000
+  }];
+  public alert;
 
   constructor(public postsService: PostsService,
-              public bsModalRef: BsModalRef,
-              public modalService: BsModalService) { }
+    public bsModalRef: BsModalRef,
+    public modalService: BsModalService) { }
 
   ngOnInit() {
     this.getPosts();
@@ -31,29 +42,49 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post: Post) {
-    const postIndex = this.posts.findIndex( (item) => item.id === post.id)
+    const postIndex = this.posts.findIndex((item) => item.id === post.id)
     this.postsService.deletePost(post.id)
       .subscribe(
-        postDeleted => this.posts.splice(postIndex, 1),
-        error => console.log('Error deleting post')
+        postDeleted =>  {
+          this.showAlert('success');
+          this.posts.splice(postIndex, 1);
+        },
+        error => {
+          this.showAlert('danger');
+          console.log('Error deleting post');
+        }
       );
   }
 
 
   addPost(post: Post) {
-    console.log('Add post' , post);
+    console.log('Add post', post);
     this.postsService.createPost(post)
       .subscribe(
-        postCreated => this.showToast(post, 'created'),
-        error => console.log('Error creating post', error)
+        postCreated => {
+          console.log('Created post: ', post);
+          this.posts.push(new Post(post));
+          this.showAlert('success');
+        },
+        error => {
+          console.log('Error creating post', error);
+          this.showAlert('danger');
+        }
       );
   }
 
   editPost(post: Post) {
     this.postsService.updatePost(post)
       .subscribe(
-        postEdited => this.showToast(post, 'edited'),
-        error => this.refreshList()
+        postEdited => {
+          this.refreshList();
+          this.showAlert('success');
+        },
+        error => {
+          console.log('Error updating post', error);
+          this.showAlert('danger');
+          this.refreshList();
+        }
       );
   }
 
@@ -61,9 +92,13 @@ export class PostsComponent implements OnInit {
     this.getPosts();
   }
 
-  // TODO Create toast component
-  showToast(post, operation) {
-    console.log(`Succesfully ${operation}, ${post}`);
+  showAlert(operation) {
+    window.scrollTo(0, 0);
+    this.alert = this.alerts.filter( (alert) => alert.type === operation)[0];
+  }
+
+  onCloseAlert() {
+    this.alert = null;
   }
 
   public openAddPostModal() {
@@ -78,7 +113,7 @@ export class PostsComponent implements OnInit {
   }
 
   public openEditPostModal(postToEdit) {
-    console.log('posttoedit' , postToEdit);
+    console.log('posttoedit', postToEdit);
     const config = {
       ignoreBackdropClick: true,
       initialState: {
