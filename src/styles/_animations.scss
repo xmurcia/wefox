@@ -1,0 +1,17 @@
+@keyframes rotateIn {
+    0% {
+        transform: rotate(180deg);
+    }
+    30% {
+        transform: rotate(-360deg);
+    }
+    80% {
+        transform: rotate(360deg);
+    }
+    90% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
