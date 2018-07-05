@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
 @Component({
@@ -6,14 +6,21 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
     templateUrl: './modal.component.html',
     styleUrls: ['./modal.component.scss']
 })
-export class CustomModalComponent {
+export class CustomModalComponent implements OnInit {
 
     @ViewChild('form') form: any;
     public action: any;
     public post = {};
+    public postToEdit: any;
 
     constructor(public bsModalRef: BsModalRef,
-    ) {
+    ) {}
+
+    ngOnInit() {
+        console.log('Posttooedit ', this.postToEdit);
+        if (this.postToEdit) {
+            this.post = this.postToEdit;
+        }
     }
 
     close() {

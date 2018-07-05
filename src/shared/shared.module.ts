@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalModule, BsModalRef } from 'ngx-bootstrap';
 import { CustomModalComponent } from '../components/modal/modal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   imports: [
@@ -12,8 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ModalModule.forRoot(),
     ReactiveFormsModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCmV6uw0-C6_5m4TpZNeZrrQs40FFa0qCQ'
+    })
   ],
-  exports: [CommonModule, HttpClientModule, ModalModule, ReactiveFormsModule, FormsModule],
+  exports: [CommonModule, HttpClientModule, ModalModule, ReactiveFormsModule, FormsModule, AgmCoreModule],
   entryComponents: [CustomModalComponent],
   declarations: [],
   providers: [BsModalRef]

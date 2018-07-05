@@ -7,6 +7,7 @@ import { API_URL } from '../../constants';
 @Injectable()
 export class PostsService {
 
+    public headers = new HttpHeaders({'Content-Type': 'application/json'});
     constructor(public http: HttpClient) { }
 
     getPosts() {
@@ -28,8 +29,7 @@ export class PostsService {
     }
 
     createPost(post: Post) {
-        const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        return this.http.post(API_URL, { post }, { headers });
+        return this.http.post(API_URL, { post }, { headers : this.headers });
     }
 
     deletePost(id: number) {
@@ -37,7 +37,7 @@ export class PostsService {
     }
 
     updatePost(post: Post) {
-        return this.http.put(`${API_URL}/${post.id}`, post);
+        return this.http.put(`${API_URL}/${post.id}`, { post } , { headers : this.headers });
     }
 
 }

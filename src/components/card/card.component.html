@@ -9,7 +9,7 @@
                 <div class="wf-card__text-box flex-2">
                     <h3 class="wf-card__title">{{item.title}}</h3>
                     <div class="wf-card__description">
-                        <p class="line-clamp line-clamp-5">{{item.content}}</p>
+                        <p class="line-clamp line-clamp-6">{{item.content}}</p>
                     </div>
                 </div>
                 <div class="wf-card__actions d-flex justify-content-between align-items-end">
@@ -22,8 +22,10 @@
     </div>
     <div class="wf-card-side wf-card-side--back" [ngClass]="{  'rotated' : rotate }">
         <div class="content">
-            MAP
-            <div class="wf-card__actions d-flex justify-content-end align-items-end">
+            <agm-map [latitude]="+item.lat" [longitude]="+item.long">
+                <agm-marker [latitude]="+item.lat" [longitude]="+item.long"></agm-marker>
+            </agm-map>
+            <div class="wf-card__actions d-flex justify-content-center align-items-end">
                 <i class="material-icons wf-card__button" (click)="rotateCard()">360 </i>
             </div>
         </div>

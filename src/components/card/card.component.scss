@@ -53,4 +53,7 @@
     &-side.wf-card-side--front.rotated {
         transform: rotateY(180deg);
     }
+    agm-map {
+        height: 92%;
+    }
 }

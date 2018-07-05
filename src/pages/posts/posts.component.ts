@@ -39,21 +39,31 @@ export class PostsComponent implements OnInit {
       );
   }
 
+
   addPost(post: Post) {
     console.log('Add post' , post);
     this.postsService.createPost(post)
       .subscribe(
-        postCreated => this.showToast(),
+        postCreated => this.showToast(post, 'created'),
         error => console.log('Error creating post', error)
       );
   }
 
   editPost(post: Post) {
-    console.log('Post to edit... ', post);
+    this.postsService.updatePost(post)
+      .subscribe(
+        postEdited => this.showToast(post, 'edited'),
+        error => this.refreshList()
+      );
   }
 
-  showToast() {
-    console.log('Succesfully created');
+  refreshList() {
+    this.getPosts();
+  }
+
+  // TODO Create toast component
+  showToast(post, operation) {
+    console.log(`Succesfully ${operation}, ${post}`);
   }
 
   public openAddPostModal() {
@@ -62,19 +72,19 @@ export class PostsComponent implements OnInit {
       initialState: {
         action: (post) => this.addPost(post),
         header: 'Add new post',
-        modalType: 'create'
       }
     };
     this.bsModalRef = this.modalService.show(CustomModalComponent, config);
   }
 
-  public openEditPostModal() {
+  public openEditPostModal(postToEdit) {
+    console.log('posttoedit' , postToEdit);
     const config = {
       ignoreBackdropClick: true,
       initialState: {
         action: (post) => this.editPost(post),
         header: 'Edit post',
-        modalType: 'create'
+        postToEdit
       }
     };
     this.bsModalRef = this.modalService.show(CustomModalComponent, config);

@@ -6,46 +6,44 @@
                     </button>
     </div>
     <div class="modal-body">
-        <div [ngSwitch]="modalType">
-            <div class="row custom-modal__create custom-modal__create" *ngSwitchCase="'create'">
-                <div class="col-12">
-                    <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="title">Title:</label>
-                                <input type="text" class="form-control" name="title" #title="ngModel" [(ngModel)]="post.title" id="title" required>
-                            </div>
+        <div class="row custom-modal__create custom-modal__create">
+            <div class="col-12">
+                <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" class="form-control" name="title" #title="ngModel" [(ngModel)]="post.title" id="title" required>
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="url">Image url:</label>
-                                <input type="text" class="form-control" name="url" #url="ngModel" [(ngModel)]="post.image_url" id="url">
-                            </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="url">Image url:</label>
+                            <input type="text" class="form-control" name="url" #url="ngModel" [(ngModel)]="post.image_url" id="url">
                         </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="lat">Latitude:</label>
-                                <input type="text" class="form-control" name="lat" #lat="ngModel" [(ngModel)]="post.lat" id="lat">
-                            </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="lat">Latitude:</label>
+                            <input type="text" class="form-control" name="lat" #lat="ngModel" [(ngModel)]="post.lat" id="lat">
                         </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="long">Long:</label>
-                                <input type="text" class="form-control" name="long" #long="ngModel" [(ngModel)]="post.long" id="long">
-                            </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="long">Long:</label>
+                            <input type="text" class="form-control" name="long" #long="ngModel" [(ngModel)]="post.long" id="long">
                         </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="content">Content:</label>
-                                <textarea class="form-control" rows="5" id="content" name="content" #content="ngModel" [(ngModel)]="post.content" required></textarea>
-                            </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="content">Content:</label>
+                            <textarea class="form-control" rows="5" id="content" name="content" #content="ngModel" [(ngModel)]="post.content" required></textarea>
                         </div>
-                        <div class="modal-footer d-flex justify-content-end">
-                            <button class="btn btn-danger" (click)="close()">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Go</button>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-end">
+                        <button class="btn btn-danger" (click)="close()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Go</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
