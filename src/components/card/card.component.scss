@@ -3,11 +3,20 @@
     &:hover {
         transform: translateY(-4px);
     }
+    &__antistate {
+        position: relative;
+        margin: 9rem 1rem;
+        text-align: center;
+    }
     transition: all .4s;
     width: 25rem;
     height: 35rem;
     perspective: 1500px;
     margin: 2rem 2rem;
+    &__post-image {
+        width: 23.4rem;
+        height: 16rem;
+    }
     &__button {
         cursor: pointer;
     }
@@ -43,7 +52,7 @@
             transform: rotateY(0);
         }
         &--back {
-            background-image: linear-gradient(to bottom right, rgb(48, 163, 64), rgb(32, 99, 32));
+            background-image: linear-gradient(to bottom right, $wefox, $orange-hibiscus);
             transform: rotateY(180deg);
         }
     }

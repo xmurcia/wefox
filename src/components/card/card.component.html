@@ -3,7 +3,7 @@
         <div class="content">
             <div class="d-flex flex-column h-100">
                 <div class="wf-card__image my-3">
-                    <img [src]="item.image_url" class="img-fluid" alt="post image">
+                    <img [src]="item.image_url || 'assets/img/no-image.png'" class="wf-card__post-image" alt="post image">
                 </div>
 
                 <div class="wf-card__text-box flex-2">
@@ -22,9 +22,14 @@
     </div>
     <div class="wf-card-side wf-card-side--back" [ngClass]="{  'rotated' : rotate }">
         <div class="content">
-            <agm-map [latitude]="+item.lat" [longitude]="+item.long">
+            <agm-map *ngIf="+item.lat && +item.long; else noMap" [latitude]="+item.lat" [longitude]="+item.long">
                 <agm-marker [latitude]="+item.lat" [longitude]="+item.long"></agm-marker>
             </agm-map>
+            <ng-template #noMap>
+                <div class="wf-card__antistate">
+                    <h3 class="wf-card__map-na">Map for that post is not available</h3>
+                </div>
+            </ng-template>
             <div class="wf-card__actions d-flex justify-content-center align-items-end">
                 <i class="material-icons wf-card__button" (click)="rotateCard()">360 </i>
             </div>
