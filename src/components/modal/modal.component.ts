@@ -17,7 +17,6 @@ export class CustomModalComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        console.log('Posttooedit ', this.postToEdit);
         if (this.postToEdit) {
             this.post = this.postToEdit;
         }
@@ -28,7 +27,6 @@ export class CustomModalComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log('Post in submit ', this.post);
         this.action(this.post);
         this.close();
     }
