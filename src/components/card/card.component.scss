@@ -1,6 +1,5 @@
 @import 'src/styles/styles';
 .wf-card {
-    animation: fadeIn .7s ease-out;
     &:hover {
         transform: translateY(-4px);
     }
@@ -28,6 +27,7 @@
         font-weight: bold;
     }
     &-side {
+        animation: fadeIn 3s ease-out;
         -webkit-backface-visibility: hidden;
         box-shadow: 1px 2px 15px lighten(black, 0.6);
         position: absolute;
