@@ -33,3 +33,49 @@
         padding-right: #{$i}rem;
     }
 }
+
+.line-clamp {
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    position: relative;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 !important;
+}
+
+.line-clamp:after {
+    content: '';
+    text-align: right;
+    bottom: 0;
+    right: 0;
+    width: 25%;
+    display: block;
+    position: absolute;
+    height: 1.2em;
+}
+
+.line-clamp-1 {
+    -webkit-line-clamp: 1;
+    height: 1.2em;
+}
+
+.line-clamp-2 {
+    height: 2.4em;
+}
+
+.line-clamp-3 {
+    -webkit-line-clamp: 3;
+    height: 3.6em;
+}
+
+.line-clamp-4 {
+    -webkit-line-clamp: 4;
+    height: 4.8em;
+}
+
+.line-clamp-5 {
+    -webkit-line-clamp: 5;
+    height: 6em;
+}

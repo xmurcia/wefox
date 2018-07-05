@@ -1,8 +1,20 @@
 @import 'src/styles/styles';
+::ng-deep {
+    .alert {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 2rem;
+    }
+}
+
 .posts {
-    width: 100%;
-    height: 100vh;
-    background-color: $twinkle-blue;
+    background-image: linear-gradient(-45deg, $blue-horizon 25%, $blue-gray 87%, $twinkle-blue 94%), url('/assets/img/wefox-office.jpg');
+    &__add {
+        font-size: 5rem;
+        color: $wefox;
+        cursor: pointer;
+    }
     &__text-box {
         transform: skew(1deg, 2deg);
     }
@@ -11,5 +23,15 @@
         font-weight: 600;
         letter-spacing: 1rem;
         color: $wefox;
+        transition: all .4s;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+    &__loading-full {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% -50%);
     }
 }

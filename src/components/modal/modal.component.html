@@ -1,0 +1,50 @@
+<div class="custom-modal">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ header }}</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+    </div>
+    <div class="modal-body">
+        <div class="row custom-modal__create custom-modal__create">
+            <div class="col-12">
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="title">Title (required)*:</label>
+                            <input type="text" class="form-control" placeholder="City name" name="title" #title="ngModel" [(ngModel)]="post.title" id="title" required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="url">Image url:</label>
+                            <input type="text" class="form-control" placeholder="Image url" name="url" #url="ngModel" [(ngModel)]="post.image_url" id="url">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="lat">Latitude:</label>
+                            <input type="text" class="form-control" placeholder="Latitude" name="lat" #lat="ngModel" [(ngModel)]="post.lat" id="lat">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="long">Long:</label>
+                            <input type="text" class="form-control" placeholder="Longitud" name="long" #long="ngModel" [(ngModel)]="post.long" id="long">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="content">Content (required)*:</label>
+                            <textarea class="form-control" rows="5" id="content" name="content" #content="ngModel" [(ngModel)]="post.content" required></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-end">
+                        <button type="button" class="btn btn-danger" (click)="close()">Cancel</button>
+                        <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Go</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,28 @@
-<div class="posts">
+<div class="posts" *ngIf="posts.length > 0; else loading">
     <div class="row text-center">
         <div class="col-12 col-sm-12">
-            <div class="posts__text-box mt-6">
+            <div class="posts__text-box m-6">
                 <h1 class="posts__title">Check the posts list!</h1>
             </div>
         </div>
     </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-start">
+                    <i class="material-icons posts__add" (click)="openAddPostModal()">add_circle_outline</i>
+                    <alert *ngIf="alert" [type]="alert.type" [dismissOnTimeout]="alert.timeout" (onClosed)="onCloseAlert(alert)">{{ alert.msg }}</alert>
+                </div>
+            </div>
+            <div class="col-12 col-xs-12 col-sm-6 col-md-4 col-lg-4" *ngFor="let post of posts">
+                <div class="d-flex justify-content-center">
+                    <app-card [item]="post" (deleteItem)="deletePost(post)" (editItem)="openEditPostModal(post)"></app-card>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<ng-template #loading>
+    <div class="lds-circle posts__loading-full"></div>
+</ng-template>
