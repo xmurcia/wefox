@@ -26,6 +26,11 @@
     &__title {
         font-weight: bold;
     }
+    &__more-content {
+        text-decoration: underline;
+        color: $twinkle-blue;
+        font-size: 1rem;
+    }
     &-side {
         animation: fadeIn 3s ease-out;
         -webkit-backface-visibility: hidden;

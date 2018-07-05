@@ -9,7 +9,8 @@
                 <div class="wf-card__text-box flex-2">
                     <h3 class="wf-card__title">{{item.title}}</h3>
                     <div class="wf-card__description">
-                        <p class="line-clamp line-clamp-6">{{item.content}}</p>
+                        <p>{{item.content.length >= 120 ? item.content.slice(0, 150) + '...' : item.content }}</p>
+                        <p *ngIf="item.content.length >= 120" class="wf-card__more-content">Click edit to see more</p>
                     </div>
                 </div>
                 <div class="wf-card__actions d-flex justify-content-between align-items-end">
