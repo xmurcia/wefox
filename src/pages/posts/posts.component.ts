@@ -37,7 +37,7 @@ export class PostsComponent implements OnInit {
     this.postsService.getPosts()
       .subscribe(
         posts => this.posts = posts,
-        error => console.log('Error ', error)
+        error => console.log('Error getting list', error)
       );
   }
 
@@ -46,24 +46,22 @@ export class PostsComponent implements OnInit {
     this.postsService.deletePost(post.id)
       .subscribe(
         postDeleted =>  {
+          this.refreshList();
           this.showAlert('success');
-          this.posts.splice(postIndex, 1);
         },
         error => {
           this.showAlert('danger');
-          console.log('Error deleting post');
+          console.log('Error deleting post', error);
         }
       );
   }
 
 
   addPost(post: Post) {
-    console.log('Add post', post);
     this.postsService.createPost(post)
       .subscribe(
         postCreated => {
-          console.log('Created post: ', post);
-          this.posts.push(new Post(post));
+          this.refreshList();
           this.showAlert('success');
         },
         error => {
@@ -113,7 +111,6 @@ export class PostsComponent implements OnInit {
   }
 
   public openEditPostModal(postToEdit) {
-    console.log('posttoedit', postToEdit);
     const config = {
       ignoreBackdropClick: true,
       initialState: {
