@@ -8,12 +8,11 @@
     <div class="modal-body">
         <div class="row custom-modal__create custom-modal__create">
             <div class="col-12">
-                <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                <form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
                     <div class="col-12">
-                        <div class="form-group" [ngClass]="{ 'has-error' : form.submitted && form.controls.name.title?.required}">
+                        <div class="form-group">
                             <label for="title">Title (required)*:</label>
                             <input type="text" class="form-control" placeholder="City name" name="title" #title="ngModel" [(ngModel)]="post.title" id="title" required>
-                            <label *ngIf="form.submitted && form.controls.name.title?.required">Title*:</label>
                         </div>
                     </div>
                     <div class="col-12">
