@@ -10,7 +10,7 @@ export class CardComponent  {
 
   public rotate: Boolean = false;
 
-  @Input() item: any;
+  @Input('item') item: any;
   @Output() deleteItem = new EventEmitter();
   @Output() editItem = new EventEmitter();
 

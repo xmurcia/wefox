@@ -1,5 +1,6 @@
 @import 'src/styles/styles';
 .wf-card {
+    animation: fadeIn .7s ease-in .5s;
     &:hover {
         transform: translateY(-4px);
     }

@@ -5,11 +5,13 @@ import { CardComponent } from './card.component';
 
 @NgModule({
     imports: [
-        SharedModule
+        SharedModule,
+        ModalModule
     ],
     declarations: [
         CardComponent
-    ]
+    ],
+    exports: [CardComponent]
 })
-export class CustomModalModule {
+export class CardModule {
 }

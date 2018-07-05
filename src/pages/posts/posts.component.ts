@@ -42,7 +42,7 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post: Post) {
-    const postIndex = this.posts.findIndex((item) => item.id === post.id)
+    const postIndex = this.posts.findIndex((item) => item.id === post.id);
     this.postsService.deletePost(post.id)
       .subscribe(
         postDeleted =>  {

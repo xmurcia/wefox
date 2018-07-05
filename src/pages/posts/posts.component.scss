@@ -14,6 +14,13 @@
         font-size: 5rem;
         color: $wefox;
         cursor: pointer;
+        transition: all .5s;
+        &:hover {
+            transform: rotate(90deg);
+        }
+        &:active {
+            transform: translateY(2px);
+        }
     }
     &__text-box {
         transform: skew(1deg, 2deg);

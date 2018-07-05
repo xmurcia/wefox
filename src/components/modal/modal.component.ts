@@ -10,8 +10,9 @@ export class CustomModalComponent implements OnInit {
 
     @ViewChild('form') form: any;
     public action: any;
-    public post = {};
+    public post: any = {};
     public postToEdit: any;
+    public header: string;
 
     constructor(public bsModalRef: BsModalRef,
     ) {}
