@@ -12,6 +12,7 @@
     }
     &__logo {
         width: 6rem;
+        animation: rotateIn 1.5s ease-out 1s 1;
     }
     &__text-box {
         position: absolute;
@@ -44,6 +45,7 @@
         padding: 1.5rem;
         font-size: 1.9rem;
         cursor: pointer;
+        transition: all .4s;
         &.but-light {
             background-color: $orange-hibiscus-strong;
             color: $twinkle-blue;
@@ -53,9 +55,10 @@
             &:hover {
                 text-decoration: none;
                 background-color: $wefox;
-                transform: translateY(2px);
                 box-shadow: 0 1rem 2rem rgba($twinkle-blue, 0.2);
             }
         }
     }
 }
+
+;
