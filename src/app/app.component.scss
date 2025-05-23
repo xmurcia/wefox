@@ -1,0 +1,24 @@
+.theme-toggle-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+  // Use the CSS variables defined in _variables.scss
+  background-color: var(--button-background-color, #007bff); // Fallback if variables not defined
+  color: var(--button-text-color, #ffffff);
+  border: 1px solid var(--button-border-color, #007bff);
+
+  &:hover {
+    background-color: var(--button-hover-background-color, #0056b3);
+    border-color: var(--button-hover-border-color, #0056b3);
+    // Note: The prompt didn't specify hover text color, so it will inherit.
+    // If needed, add: color: var(--button-hover-text-color, #ffffff);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--button-focus-shadow-color, rgba(0, 123, 255, 0.5));
+  }
+}

@@ -1,0 +1,38 @@
+// src/styles/_dark-theme.scss
+
+// This file is intended for specific dark-theme-only styles or more complex adjustments
+// that are not covered by the general CSS variable overrides in `_variables.scss`.
+// Most theme variable changes (like --background-color, --text-color) are handled
+// by the `body.dark-theme` class defined in `_variables.scss`.
+
+// Ensure components primarily use the CSS variables defined in _variables.scss, e.g.:
+// background-color: var(--background-color);
+// color: var(--text-color);
+
+// If there are components that don't naturally inherit these variables, or require
+// unique styling in dark mode, add specific overrides here.
+
+// Example for links to ensure they use the theme's primary color in dark mode:
+body.dark-theme a {
+  color: var(--primary-color); // --primary-color is updated to --dark-primary-color by body.dark-theme
+}
+
+// Example for headings, if they needed a color different from the general --text-color:
+// body.dark-theme h1,
+// body.dark-theme h2,
+// body.dark-theme h3 {
+//   color: var(--text-color); // Default behavior, but could be a more specific dark theme heading color
+// }
+
+// The div with class "gray" in app.component.html might need specific styling
+// if its current gray background doesn't work well in dark mode.
+// However, without knowing what "gray" class does, we'll assume it's either
+// not problematic or will be handled by general variable changes.
+// If it has its own background color that clashes, an override would be:
+// body.dark-theme .gray {
+//   background-color: var(--card-background-color); // Or another suitable dark theme background
+//   color: var(--text-color);
+// }
+
+// For now, this file is kept minimal as _variables.scss handles the core switching.
+// Add more specific rules here as the application develops and needs arise.

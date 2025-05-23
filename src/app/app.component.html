@@ -1,4 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center; padding: 10px;">
+  <button (click)="toggleDarkMode()" class="theme-toggle-button">
+    {{ isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode' }}
+  </button>
+</div>
+
 <div class="gray">
     <h1>
         Welcome to {{ title }}!
