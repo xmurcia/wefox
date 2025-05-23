@@ -1,0 +1,92 @@
+// Light theme color variables
+:root {
+  --light-background-color: #ffffff;
+  --light-text-color: #333333;
+  --light-primary-color: #007bff;
+  --light-secondary-color: #6c757d;
+  --light-accent-color: #ffc107; // Example accent color
+  --light-border-color: #dee2e6;
+  --light-card-background-color: #f8f9fa;
+  // Button specific light theme variables
+  --light-button-background-color: var(--light-primary-color);
+  --light-button-text-color: #ffffff;
+  --light-button-border-color: var(--light-primary-color);
+  --light-button-hover-background-color: #0056b3; // Darker shade of blue for hover
+  --light-button-hover-text-color: #ffffff;
+  --light-button-hover-border-color: #004085; // Even darker blue for hover border
+  --light-button-focus-shadow-color: rgba(0, 123, 255, 0.5);
+}
+
+// Dark theme color variables
+// These are defined but not directly used by default.
+// They are referenced by the body.dark-theme class.
+:root {
+  --dark-background-color: #121212;
+  --dark-text-color: #e0e0e0;
+  --dark-primary-color: #3782d5; // Lighter blue for dark mode
+  --dark-secondary-color: #5a6268;
+  --dark-accent-color: #ffca2c; // Slightly adjusted accent for dark
+  --dark-border-color: #495057;
+  --dark-card-background-color: #1e1e1e;
+  // Button specific dark theme variables
+  --dark-button-background-color: var(--dark-primary-color);
+  --dark-button-text-color: #ffffff; // White text can work well on #3782d5
+  --dark-button-border-color: var(--dark-primary-color);
+  --dark-button-hover-background-color: #2c6cb0; // Darker shade of the dark primary
+  --dark-button-hover-text-color: #ffffff;
+  --dark-button-hover-border-color: #275f9a; // Even darker shade
+  --dark-button-focus-shadow-color: rgba(55, 130, 213, 0.5);
+}
+
+// General-purpose CSS variables
+// These will be used by components and default to light theme values.
+:root {
+  --background-color: var(--light-background-color);
+  --text-color: var(--light-text-color);
+  --primary-color: var(--light-primary-color);
+  --secondary-color: var(--light-secondary-color);
+  --accent-color: var(--light-accent-color);
+  --border-color: var(--light-border-color);
+  --card-background-color: var(--light-card-background-color);
+  --font-family-base: 'Arial', sans-serif; // Example font
+  --spacing-unit: 8px; // Example spacing unit
+
+  // General button variables
+  --button-background-color: var(--light-button-background-color);
+  --button-text-color: var(--light-button-text-color);
+  --button-border-color: var(--light-button-border-color);
+  --button-hover-background-color: var(--light-button-hover-background-color);
+  --button-hover-text-color: var(--light-button-hover-text-color);
+  --button-hover-border-color: var(--light-button-hover-border-color);
+  --button-focus-shadow-color: var(--light-button-focus-shadow-color);
+}
+
+// Dark theme override class
+// When body has the class .dark-theme, these variables will take precedence.
+body.dark-theme {
+  --background-color: var(--dark-background-color);
+  --text-color: var(--dark-text-color);
+  --primary-color: var(--dark-primary-color);
+  --secondary-color: var(--dark-secondary-color);
+  --accent-color: var(--dark-accent-color);
+  --border-color: var(--dark-border-color);
+  --card-background-color: var(--dark-card-background-color);
+
+  // Override button variables for dark theme
+  --button-background-color: var(--dark-button-background-color);
+  --button-text-color: var(--dark-button-text-color);
+  --button-border-color: var(--dark-button-border-color);
+  --button-hover-background-color: var(--dark-button-hover-background-color);
+  --button-hover-text-color: var(--dark-button-hover-text-color);
+  --button-hover-border-color: var(--dark-button-hover-border-color);
+  --button-focus-shadow-color: var(--dark-button-focus-shadow-color);
+}
+
+// Example of existing SCSS variables (if any)
+// $primary-color-scss: #007bff; // This is a SCSS variable, not a CSS variable
+// $secondary-color-scss: #6c757d;
+
+// You can also use SCSS variables to define CSS variables if needed, for example:
+// :root {
+//   --primary-color: #{$primary-color-scss};
+// }
